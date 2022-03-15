@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  rsyslog:
+    image: rsyslog-docker
+    ports:
+      - 514:514
+      - 514:514/udp
+    volumes:
+      - ./conf/rsyslog:/etc/rsyslog.d
+      - ./conf/logrotate:/etc/logrotate.d.local
+      - ./data/logs:/var/log
